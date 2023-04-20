@@ -1,6 +1,11 @@
 from flask import Flask, render_template, jsonify
+from sqlalchemy import create_engine, text
+
+from database import returning
 # import the Flask class from flask module
 # render_template to return html pages from function and pass some data to html pages for dyanamic infornmation
+
+# dat = returning()
 
 # then create an app object of type('Flask')
 app = Flask(__name__)
@@ -8,7 +13,11 @@ app = Flask(__name__)
 data = [
   'Vihan', 'Kapoor', 'Payal', 'Kapoor', "Sanjay", "Kapoor", "Manju", "Kapoor"
 ]
+
+# returining is a function in database.py file which can be 
+data1 = returning()
 # store some data in form of list or list of dictionary for accessing inside another function
+# print(data1)
 
 
 # set the route of the app
@@ -16,7 +25,7 @@ data = [
 # below the route you have to define a function for returning a webpage on some request
 def func():
   return render_template(
-    'home.html', data=data
+    'home.html', data=data1
   )  #just below the route wrote the corresponding function            lhs data is the variable that will be passed into the html file for direct access
 
 
